@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ConnectCare
 
-## Getting Started
+A healthcare application frontend built with **Next.js, React, TypeScript, and Material UI**.
 
-First, run the development server:
+ConnectCare explores the interface for connecting patients and healthcare providers. This public repository currently contains an early frontend scaffold centered on a login screen, reusable layout components, and registration form components.
+
+## Current implementation
+
+- The home route renders the login interface from `app/src/loginpage.tsx`.
+- The login UI includes email/password inputs, password visibility, and a remember-me checkbox.
+- Shared UI components and layout code live in `app/src/@core/`.
+- Multi-step registration components live in `app/src/views/pages/auth/register-multi-steps/`.
+
+**Implementation boundary:** the login form currently prevents submission and the social sign-in buttons are placeholders. Their presence does not indicate working authentication. This repository does not include a backend API or database implementation.
+
+## Technology stack
+
+| Layer | Technology |
+| --- | --- |
+| Framework | Next.js 15, App Router |
+| UI | React 19, Material UI 7, Emotion |
+| Language | TypeScript |
+| Styling | Tailwind CSS 4 and component styles |
+| Icons | Iconify |
+
+Versions reflect the declarations in [package.json](package.json).
+
+## Local development
+
+Use a Node.js version compatible with the Next.js version in `package.json`, and npm.
 
 ```bash
+git clone https://github.com/SalmanOkz/ConnectCare.git
+cd ConnectCare
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Available commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the development server with Turbopack |
+| `npm run build` | Create a production build with Turbopack |
+| `npm start` | Serve a successful production build |
 
-## Learn More
+No test or lint scripts are currently declared in `package.json`. Installation and build commands are provided for contributors; this documentation does not assert that the current scaffold passes a production build.
 
-To learn more about Next.js, take a look at the following resources:
+## Repository map
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Path | Purpose |
+| --- | --- |
+| [app/page.tsx](app/page.tsx) | Home route |
+| [app/layout.tsx](app/layout.tsx) | App Router root layout |
+| [app/src/loginpage.tsx](app/src/loginpage.tsx) | Login interface |
+| [app/src/@core](app/src/@core) | Shared components and layouts |
+| [app/src/configs](app/src/configs) | UI and authentication-related configuration |
+| [app/src/views/pages/auth](app/src/views/pages/auth) | Authentication UI components |
+| [public](public) | Static assets |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Suggested next steps
 
-## Deploy on Vercel
+- Connect the login interface to a server-side authentication flow.
+- Add validation, loading indicators, and accessible error feedback.
+- Wire registration components into explicit application routes.
+- Add automated checks and document required environment variables when backend integrations are introduced.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+These are planned improvements, not completed features.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+Open an issue describing the problem or proposed improvement, then submit a focused pull request. Include screenshots for UI changes and explain how you verified the behavior.
